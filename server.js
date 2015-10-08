@@ -6,11 +6,11 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/app/'));
 
-var myJsonObj =
-    {"dinner":"so good", "numberOfDinners":"44"}
+app.get("/stardestroyer", function (req, res){
 
-app.get("/myJson",function(req, res){
- res.json(myJsonObj);
+//The sendFile method on the response object sends the stardestroyer.json file. __dirname is referencing the directory where it currently resides.
+res.sendFile(__dirname + "/stardestroyer.json");
+
 });
 
 app.listen(PORT, function() {
