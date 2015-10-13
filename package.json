@@ -1,6 +1,6 @@
 {
   "name": "quiz6",
-  "version": "0.0.1",
+  "version": "0.0.01",
   "description": "Test server",
   "main": "server.js",
   "scripts": {
