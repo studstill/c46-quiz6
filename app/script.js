@@ -1,15 +1,15 @@
-$(function() {
+var response;
 
-//The .get request accesses the /stardestroyer endpoint
-$.get("/stardestroyer", function(data){
+$.get('/item/43', null, function(data, status, request) {
+      $('#itemName').text(data.itemName);
+      $('#itemPrice').text(data.itemPrice);
+      $('#itemDescription').text(data.itemDescription);
+      displayReviews(data.reviews);
+    }, 'json');
 
-//Access the length value from the retrieved JSON object and add it to an li element with the #length id
-$("#length").text("Length: " + data.length);
-//Access the cost value from the retrieved JSON object and add it to an li element with the #cost id
-$("#cost").text("Cost: " + data.cost);
-//Access the capacity value from the retrieved JSON object and add it to an li element with the #capacity id
-$("#capacity").text("Capacity: " + data.capacity);
+function displayReviews(reviews) {
 
-});
-
-});
+  reviews.forEach(function(reviews) {
+    $('#reviews').append('<p>' + reviews + '</p>');
+  });
+}
